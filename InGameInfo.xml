@@ -19,13 +19,16 @@
             </if>
             <str>$f)</str>
         </line>
-		<line>
-            <str>生物群系: $e{biome}$f</str>
+	<line>
+            <str>生物群系: $e{biome}$f</str><str> ($e{abrfinedirection}$f)</str>
             <if>
                 <var>slimes</var>
                 <str> ($aSlime$f)</str>
                 <str> </str>
             </if>
+        </line>
+        <line>
+            <str>温度/湿度: $e{temperature} $f/$e {humidity}</str>
         </line>
         <line>
             <str>亮度: </str>
@@ -75,7 +78,7 @@
 				<num>0</num>
 			</round>
 			<str>MB</str>
-			<str> (</str>
+			<str> $f($e</str>
 			<round>
                 <pct>
                     <var>memused</var>
@@ -83,7 +86,7 @@
                 </pct>
                 <num>2</num>
             </round>
-			<str>%)</str>
+			<str>%$f)</str>
         </line>
         <line>
             <str>FPS: </str>
