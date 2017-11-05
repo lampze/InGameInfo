@@ -4,12 +4,9 @@
          <line>
             <str>{username} 的{gamemode}</str>
             <if>
-              <equal>
-                <var>serverport</var>
-                <num>-1</num>
-              </equal>
-              <str>第 {day} 天</str>
+              <var>serverport</var>
               <str></str>
+              <str>第 {day} 天</str>
             </if>
             <str>, {mctime} (</str>
             <if>
@@ -118,12 +115,9 @@
         </line>
         <line>
             <if>
-              <equal>
-                <var>serverport</var>
-                <num>-1</num>
-              </equal>
-              <str></str>
+              <var>serverport</var>
               <str>Ping: $e{ping}$f {pingicon}</str>
+              <str></str>
             </if>
         </line>
         <line>
