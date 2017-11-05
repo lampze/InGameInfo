@@ -5,8 +5,8 @@
             <str>{username} 的{gamemode}</str>
             <if>
               <var>serverport</var>
-              <str></str>
               <str>第 {day} 天</str>
+              <str></str>
             </if>
             <str>, {mctime} (</str>
             <if>
@@ -116,8 +116,8 @@
         <line>
             <if>
               <var>serverport</var>
-              <str>Ping: $e{ping}$f {pingicon}</str>
               <str></str>
+              <str>Ping: $e{ping}$f {pingicon}</str>
             </if>
         </line>
         <line>
