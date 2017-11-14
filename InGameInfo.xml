@@ -1,360 +1,400 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-    <lines at="topleft">
-         <line>
-            <str>{username} 的{gamemode}</str>
-            <if>
-              <var>serverport</var>
-              <str>第 {day} 天</str>
-              <str></str>
-            </if>
-            <str>, {mctime} (</str>
-            <if>
-                <var>daytime</var>
-                <str>$e白天</str>
-                <str>$8夜晚</str>
-            </if>
-            <str>$f)</str>
-        </line>
-	<line>
-            <str>生物群系: $e{biome}$f</str><str> ($e{abrfinedirection}$f)</str>
-            <if>
-                <var>slimes</var>
-                <str> ($aSlime$f)</str>
-                <str> </str>
-            </if>
-        </line>
-        <line>
-            <str>温度/湿度: $e{temperature} $f/$e {humidity}</str>
-        </line>
-        <line>
-            <str>亮度: </str>
-            <max>
-                <var>light</var>
-                <num>7.5</num>
-                <str>$e</str>
-                <str>$c</str>
-            </max>
-            <var>light</var>
-            <str>$r (eye: </str>
-            <max>
-                <var>lighteye</var>
-                <num>7.5</num>
-                <str>$e</str>
-                <str>$c</str>
-            </max>
-            <var>lighteye</var>
-            <str>$r)</str>
-        </line>
-        <line>
-            <str>$f经验: $e{xpthislevel}$f/$e{xpcap}$f ($e</str>
-            <round>
-                <pct>
-                    <var>xpthislevel</var>
-                    <var>xpcap</var>
-                </pct>
-                <num>0</num>
-            </round>
-            <str>%$f)</str>
-        </line>
-		<line>
-            <str>内存： $e</str>
-			<round>
-				<div>
-					<var>memused</var>
-					<num>1048576</num>
-				</div>
-				<num>0</num>
-			</round>
-			<str>$f/$e</str>
-			<round>
-				<div>
-					<var>memmax</var>
-					<num>1048576</num>
-				</div>
-				<num>0</num>
-			</round>
-			<str>MB</str>
-			<str> $f($e</str>
-			<round>
-                <pct>
-                    <var>memused</var>
-                    <var>memmax</var>
-                </pct>
-                <num>2</num>
-            </round>
-			<str>%$f)</str>
-        </line>
-        <line>
-            <str>FPS: </str>
-            <op>
-                <str>gt</str>
-                <var>fps</var>
-                <num>60</num>
-                <num>45</num>
-                <num>30</num>
-                <num>15</num>
-                <num>0</num>
-                <str>$a</str>
-                <str>$e</str>
-                <str>$6</str>
-                <str>$c</str>
-                <str>$4</str>
-                <str/>
-            </op>
-            <var>fps</var>
-        </line>
-        <line>
-            <str>实体数量: $e{entitiesrendered}$f/$e{entitiestotal}$f</str>
-        </line>
-        <line>
-            <str>仰角: $e{pitch}$f</str>
-        </line>
-        <line>
-            <str>速度: $e{speed}$f</str>
-        </line>
-        <line>
-            <if>
-              <var>serverport</var>
-              <str></str>
-              <str>Ping: $e{ping}$f {pingicon}</str>
-            </if>
-        </line>
-        <line>
-            <if>
-                <var>ridinghorse</var>
-                <str>马匹信息: 速度 $e{horsespeed}$f, 跳跃强度: $e{horsejumpstrength}$f</str>
-            </if>
-        </line>
-    </lines>
-    <lines at="bottomleft">
-        <line>
-            <var>mainhandicon</var>
-            <str> </str>
-            <op>
-                <str>ge</str>
-                <pct>
-                    <var>mainhanddamageleft</var>
-                    <var>mainhandmaxdamage</var>
-                </pct>
-                <num>50</num>
-                <num>20</num>
-                <num>10</num>
-                <num>0</num>
-                <str>$e</str>
-                <str>$6</str>
-                <str>$c</str>
-                <str>$4</str>
-                <str/>
-            </op>
-            <max>
-                <var>mainhanddamageleft</var>
-                <num>0.5</num>
-                <str>{mainhanddamageleft}$f / $e{mainhandmaxdamage}</str>
-                <var>mainhandname</var>
-            </max>
-        </line>
-        <line>
-            <var>offhandicon</var>
-            <str> </str>
-            <op>
-                <str>ge</str>
-                <pct>
-                    <var>offhanddamageleft</var>
-                    <var>offhandmaxdamage</var>
-                </pct>
-                <num>50</num>
-                <num>20</num>
-                <num>10</num>
-                <num>0</num>
-                <str>$e</str>
-                <str>$6</str>
-                <str>$c</str>
-                <str>$4</str>
-                <str/>
-            </op>
-            <max>
-                <var>offhanddamageleft</var>
-                <num>0.5</num>
-                <str>{offhanddamageleft}$f / $e{offhandmaxdamage}</str>
-                <var>offhandname</var>
-            </max>
-        </line>
-        <line>
-            <str> </str>
-        </line>
-    </lines>
-    <lines at="bottomright">
-        <line>
-            <max>
-                <var>potiondurationticks0</var>
-                <num>0.5</num>
-                <str>{potionduration0} {potionicon0}</str>
-                <str/>
-            </max>
-        </line>
-        <line>
-            <max>
-                <var>potiondurationticks1</var>
-                <num>0.5</num>
-                <str>{potionduration1} {potionicon1}</str>
-                <str/>
-            </max>
-        </line>
-        <line>
-            <max>
-                <var>potiondurationticks2</var>
-                <num>0.5</num>
-                <str>{potionduration2} {potionicon2}</str>
-                <str/>
-            </max>
-        </line>
-        <line>
-            <max>
-                <var>potiondurationticks3</var>
-                <num>0.5</num>
-                <str>{potionduration3} {potionicon3}</str>
-                <str/>
-            </max>
-        </line>
-        <line>
-            <max>
-                <var>potiondurationticks4</var>
-                <num>0.5</num>
-                <str>{potionduration4} {potionicon4}</str>
-                <str/>
-            </max>
-        </line>
-        <line>
-            <max>
-                <var>potiondurationticks5</var>
-                <num>0.5</num>
-                <str>{potionduration5} {potionicon5}</str>
-                <str/>
-            </max>
-        </line>
-        <line>
-            <max>
-                <var>potiondurationticks6</var>
-                <num>0.5</num>
-                <str>{potionduration6} {potionicon6}</str>
-                <str/>
-            </max>
-        </line>
-        <line>
-            <max>
-                <var>potiondurationticks7</var>
-                <num>0.5</num>
-                <str>{potionduration7} {potionicon7}</str>
-                <str/>
-            </max>
-        </line>
-        <line>
-            <max>
-                <var>potiondurationticks8</var>
-                <num>0.5</num>
-                <str>{potionduration8} {potionicon8}</str>
-                <str/>
-            </max>
-        </line>
-        <line>
-            <str> </str>
-        </line>
-        <line>
-            <op>
-                <str>ge</str>
-                <pct>
-                    <var>helmetdamageleft</var>
-                    <var>helmetmaxdamage</var>
-                </pct>
-                <num>50</num>
-                <num>20</num>
-                <num>10</num>
-                <str>$e</str>
-                <str>$6</str>
-                <str>$c</str>
-                <str>$4</str>
-            </op>
-            <max>
-                <var>helmetdamageleft</var>
-                <num>0.5</num>
-                <str>{helmetdamageleft}$f / $e{helmetmaxdamage}</str>
-                <str/>
-            </max>
-            <str> </str>
-            <var>helmeticon</var>
-        </line>
-        <line>
-            <op>
-                <str>ge</str>
-                <pct>
-                    <var>chestplatedamageleft</var>
-                    <var>chestplatemaxdamage</var>
-                </pct>
-                <num>50</num>
-                <num>20</num>
-                <num>10</num>
-                <str>$e</str>
-                <str>$6</str>
-                <str>$c</str>
-                <str>$4</str>
-            </op>
-            <max>
-                <var>chestplatedamageleft</var>
-                <num>0.5</num>
-                <str>{chestplatedamageleft}$f / $e{chestplatemaxdamage}</str>
-                <str/>
-            </max>
-            <str> </str>
-            <var>chestplateicon</var>
-        </line>
-        <line>
-            <op>
-                <str>ge</str>
-                <pct>
-                    <var>leggingsdamageleft</var>
-                    <var>leggingsmaxdamage</var>
-                </pct>
-                <num>50</num>
-                <num>20</num>
-                <num>10</num>
-                <str>$e</str>
-                <str>$6</str>
-                <str>$c</str>
-                <str>$4</str>
-            </op>
-            <max>
-                <var>leggingsdamageleft</var>
-                <num>0.5</num>
-                <str>{leggingsdamageleft}$f / $e{leggingsmaxdamage}</str>
-                <str/>
-            </max>
-            <str> </str>
-            <var>leggingsicon</var>
-        </line>
-        <line>
-            <op>
-                <str>ge</str>
-                <pct>
-                    <var>bootsdamageleft</var>
-                    <var>bootsmaxdamage</var>
-                </pct>
-                <num>50</num>
-                <num>20</num>
-                <num>10</num>
-                <str>$e</str>
-                <str>$6</str>
-                <str>$c</str>
-                <str>$4</str>
-            </op>
-            <max>
-                <var>bootsdamageleft</var>
-                <num>0.5</num>
-                <str>{bootsdamageleft}$f / $e{bootsmaxdamage}</str>
-                <str/>
-            </max>
-            <str> </str>
-            <var>bootsicon</var>
-        </line>
-    </lines>
+    <!--有不想要的就按注释来删除-->
+  <lines at="topleft">
+    <!-- 基本信息：开始 -->
+    <line>
+      <str>{username} 的{gamemode}</str>
+      <if>
+        <var>serverport</var>
+        <str>第 {day} 天</str>
+        <str></str>
+      </if>
+      <str>, {mctime} (</str>
+      <if>
+        <var>daytime</var>
+        <str>$e白天</str>
+        <str>$8夜晚</str>
+      </if>
+      <str>$f)</str>
+    </line>
+    <!-- 基本信息：结束 -->
+
+    <!-- 生物群系：开始 -->
+    <line>
+      <str>生物群系: $e{biome}$f</str><str> ($e{abrfinedirection}$f)</str>
+      <if>
+        <var>slimes</var>
+        <str> ($aSlime$f)</str>
+        <str> </str>
+      </if>
+    </line>
+    <!-- 生物群系：结束 -->
+
+    <!-- 温度湿度：开始 -->
+    <line>
+      <str>温度/湿度: $e{temperature} $f/$e {humidity}</str>
+    </line>
+    <!-- 温度湿度：结束 -->
+
+    <!-- 亮度：开始 -->
+    <line>
+      <str>亮度: </str>
+      <max>
+        <var>light</var>
+        <num>7.5</num>
+ate。
+用M-x rng-set-schema-file-and-validate指定schema文件并validate，还可以选择把该绑定关系保存下来（缺省时当前目录下的schema.xml），当下次打开这个xml文件时会自动使用指定的schema。
+        <str>$e</str>
+        <str>$c</str>
+      </max>
+      <var>light</var>
+      <str>$r (eye: </str>
+      <max>
+        <var>lighteye</var>
+        <num>7.5</num>
+        <str>$e</str>
+        <str>$c</str>
+      </max>
+      <var>lighteye</var>
+      <str>$r)</str>
+    </line>
+    <!-- 亮度：结束 -->
+
+    <!-- 经验：开始 -->
+    <line>
+      <str>$f经验: $e{xpthislevel}$f/$e{xpcap}$f ($e</str>
+      <round>
+        <pct>
+          <var>xpthislevel</var>
+          <var>xpcap</var>
+        </pct>
+        <num>0</num>
+      </round>
+      <str>%$f)</str>
+    </line>
+    <!-- 经验：结束 -->
+
+    <!-- 内存：开始 -->
+    <line>
+      <str>内存： $e</str>
+      <round>
+	<div>
+	  <var>memused</var>
+	  <num>1048576</num>
+	</div>
+	<num>0</num>
+      </round>
+      <str>$f/$e</str>
+      <round>
+	<div>
+	  <var>memmax</var>
+	  <num>1048576</num>
+	</div>
+	<num>0</num>
+      </round>
+      <str>MB</str>
+      <str> $f($e</str>
+      <round>
+        <pct>
+          <var>memused</var>
+          <var>memmax</var>
+        </pct>
+        <num>2</num>
+      </round>
+      <str>%$f)</str>
+    </line>
+    <!-- 内存：结束 -->
+
+    <!-- FPS：开始 -->
+    <line>
+      <str>FPS: </str>
+      <op>
+        <str>gt</str>
+        <var>fps</var>
+        <num>60</num>
+        <num>45</num>
+        <num>30</num>
+        <num>15</num>
+        <num>0</num>
+        <str>$a</str>
+        <str>$e</str>
+        <str>$6</str>
+        <str>$c</str>
+        <str>$4</str>
+        <str/>
+      </op>
+      <var>fps</var>
+    </line>
+    <!-- FPS：结束 -->
+
+    <!-- 实体数量：开始 -->
+    <line>
+      <str>实体数量: $e{entitiesrendered}$f/$e{entitiestotal}$f</str>
+    </line>
+    <!-- 实体数量：结束 -->
+
+    <!-- 仰角：开始 -->
+    <line>
+      <str>仰角: $e{pitch}$f</str>
+    </line>
+    <!-- 仰角：结束 -->
+
+    <!-- 速度：开始 -->
+    <line>
+      <str>速度: $e{speed}$f</str>
+    </line>
+    <!-- 速度：结束 -->
+
+    <!-- Ping：开始 -->
+    <line>
+      <if>
+        <var>serverport</var>
+        <str></str>
+        <str>Ping: $e{ping}$f {pingicon}</str>
+      </if>
+    </line>
+    <!-- Ping：结束 -->
+
+    <!-- 坐骑：开始 -->
+    <line>
+      <if>
+        <var>ridinghorse</var>
+        <str>马匹信息: 速度 $e{horsespeed}$f, 跳跃强度: $e{horsejumpstrength}$f</str>
+      </if>
+    </line>
+    <!-- 坐骑：结束 -->
+  </lines>
+
+  <!-- 以下都是一些在屏幕下方显示的一些图标，比如药水的图标 -->
+  <lines at="bottomleft">
+    <line>
+      <var>mainhandicon</var>
+      <str> </str>
+      <op>
+        <str>ge</str>
+        <pct>
+          <var>mainhanddamageleft</var>
+          <var>mainhandmaxdamage</var>
+        </pct>
+        <num>50</num>
+        <num>20</num>
+        <num>10</num>
+        <num>0</num>
+        <str>$e</str>
+        <str>$6</str>
+        <str>$c</str>
+        <str>$4</str>
+        <str/>
+      </op>
+      <max>
+        <var>mainhanddamageleft</var>
+        <num>0.5</num>
+        <str>{mainhanddamageleft}$f / $e{mainhandmaxdamage}</str>
+        <var>mainhandname</var>
+      </max>
+    </line>
+    <line>
+      <var>offhandicon</var>
+      <str> </str>
+      <op>
+        <str>ge</str>
+        <pct>
+          <var>offhanddamageleft</var>
+          <var>offhandmaxdamage</var>
+        </pct>
+        <num>50</num>
+        <num>20</num>
+        <num>10</num>
+        <num>0</num>
+        <str>$e</str>
+        <str>$6</str>
+        <str>$c</str>
+        <str>$4</str>
+        <str/>
+      </op>
+      <max>
+        <var>offhanddamageleft</var>
+        <num>0.5</num>
+        <str>{offhanddamageleft}$f / $e{offhandmaxdamage}</str>
+        <var>offhandname</var>
+      </max>
+    </line>
+    <line>
+      <str> </str>
+    </line>
+  </lines>
+  <lines at="bottomright">
+    <line>
+      <max>
+        <var>potiondurationticks0</var>
+        <num>0.5</num>
+        <str>{potionduration0} {potionicon0}</str>
+        <str/>
+      </max>
+    </line>
+    <line>
+      <max>
+        <var>potiondurationticks1</var>
+        <num>0.5</num>
+        <str>{potionduration1} {potionicon1}</str>
+        <str/>
+      </max>
+    </line>
+    <line>
+      <max>
+        <var>potiondurationticks2</var>
+        <num>0.5</num>
+        <str>{potionduration2} {potionicon2}</str>
+        <str/>
+      </max>
+    </line>
+    <line>
+      <max>
+        <var>potiondurationticks3</var>
+        <num>0.5</num>
+        <str>{potionduration3} {potionicon3}</str>
+        <str/>
+      </max>
+    </line>
+    <line>
+      <max>
+        <var>potiondurationticks4</var>
+        <num>0.5</num>
+        <str>{potionduration4} {potionicon4}</str>
+        <str/>
+      </max>
+    </line>
+    <line>
+      <max>
+        <var>potiondurationticks5</var>
+        <num>0.5</num>
+        <str>{potionduration5} {potionicon5}</str>
+        <str/>
+      </max>
+    </line>
+    <line>
+      <max>
+        <var>potiondurationticks6</var>
+        <num>0.5</num>
+        <str>{potionduration6} {potionicon6}</str>
+        <str/>
+      </max>
+    </line>
+    <line>
+      <max>
+        <var>potiondurationticks7</var>
+        <num>0.5</num>
+        <str>{potionduration7} {potionicon7}</str>
+        <str/>
+      </max>
+    </line>
+    <line>
+      <max>
+        <var>potiondurationticks8</var>
+        <num>0.5</num>
+        <str>{potionduration8} {potionicon8}</str>
+        <str/>
+      </max>
+    </line>
+    <line>
+      <str> </str>
+    </line>
+    <line>
+      <op>
+        <str>ge</str>
+        <pct>
+          <var>helmetdamageleft</var>
+          <var>helmetmaxdamage</var>
+        </pct>
+        <num>50</num>
+        <num>20</num>
+        <num>10</num>
+        <str>$e</str>
+        <str>$6</str>
+        <str>$c</str>
+        <str>$4</str>
+      </op>
+      <max>
+        <var>helmetdamageleft</var>
+        <num>0.5</num>
+        <str>{helmetdamageleft}$f / $e{helmetmaxdamage}</str>
+        <str/>
+      </max>
+      <str> </str>
+      <var>helmeticon</var>
+    </line>
+    <line>
+      <op>
+        <str>ge</str>
+        <pct>
+          <var>chestplatedamageleft</var>
+          <var>chestplatemaxdamage</var>
+        </pct>
+        <num>50</num>
+        <num>20</num>
+        <num>10</num>
+        <str>$e</str>
+        <str>$6</str>
+        <str>$c</str>
+        <str>$4</str>
+      </op>
+      <max>
+        <var>chestplatedamageleft</var>
+        <num>0.5</num>
+        <str>{chestplatedamageleft}$f / $e{chestplatemaxdamage}</str>
+        <str/>
+      </max>
+      <str> </str>
+      <var>chestplateicon</var>
+    </line>
+    <line>
+      <op>
+        <str>ge</str>
+        <pct>
+          <var>leggingsdamageleft</var>
+          <var>leggingsmaxdamage</var>
+        </pct>
+        <num>50</num>
+        <num>20</num>
+        <num>10</num>
+        <str>$e</str>
+        <str>$6</str>
+        <str>$c</str>
+        <str>$4</str>
+      </op>
+      <max>
+        <var>leggingsdamageleft</var>
+        <num>0.5</num>
+        <str>{leggingsdamageleft}$f / $e{leggingsmaxdamage}</str>
+        <str/>
+      </max>
+      <str> </str>
+      <var>leggingsicon</var>
+    </line>
+    <line>
+      <op>
+        <str>ge</str>
+        <pct>
+          <var>bootsdamageleft</var>
+          <var>bootsmaxdamage</var>
+        </pct>
+        <num>50</num>
+        <num>20</num>
+        <num>10</num>
+        <str>$e</str>
+        <str>$6</str>
+        <str>$c</str>
+        <str>$4</str>
+      </op>
+      <max>
+        <var>bootsdamageleft</var>
+        <num>0.5</num>
+        <str>{bootsdamageleft}$f / $e{bootsmaxdamage}</str>
+        <str/>
+      </max>
+      <str> </str>
+      <var>bootsicon</var>
+    </line>
+  </lines>
 </config>
